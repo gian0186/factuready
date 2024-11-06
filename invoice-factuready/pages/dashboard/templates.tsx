@@ -1,3 +1,4 @@
+// pages/dashboard/templates.tsx
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Sidebar from '../../components/Sidebar';
@@ -10,6 +11,7 @@ const Templates = () => {
     setFadeClass('fade-in');
   }, []);
 
+  // Zorg ervoor dat deze functie goed gedefinieerd is
   const handleNavigation = (path: string) => {
     setFadeClass('fade-out');
     setTimeout(() => {
