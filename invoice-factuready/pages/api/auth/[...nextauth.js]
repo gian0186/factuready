@@ -1,0 +1,11 @@
+import NextAuth from 'next-auth'
+import Providers from 'next-auth/providers'
+
+export default NextAuth({
+  providers: [
+    Providers.Credentials({
+      // Define your authentication provider here
+    }),
+  ],
+  secret: process.env.NEXTAUTH_SECRET,
+})
