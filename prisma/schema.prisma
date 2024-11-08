@@ -1,0 +1,35 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Bedrijf {
+  id                       Int      @id @default(autoincrement())
+  bedrijfsnaam             String
+  adres                    String
+  postcode                 String
+  stad                     String
+  btwNummer                String
+  kvkNummer                String
+  email                    String
+  telefoon                 String
+  kleineondernemersregeling Boolean
+  kleur1                   String
+  kleur2                   String
+  logo                     String?  // Dit kan een URL zijn naar het logo-bestand of een base64-encoded string
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+}
+
+model Client {
+  id           Int     @id @default(autoincrement())
+  name         String
+  email        String
+  telefoon     String
+  bedrijfsnaam String?
+}
+

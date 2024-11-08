@@ -1,29 +1,16 @@
+// pages/dashboard/instellingen.tsx
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import Sidebar from '../../components/Sidebar';
+import DashboardLayout from '../../components/DashboardLayout';
 
-const Instellingen = () => {
+const Instellingen: React.FC = () => {
   const [fadeClass, setFadeClass] = useState('fade-in');
-  const router = useRouter();
 
   useEffect(() => {
     setFadeClass('fade-in');
   }, []);
 
-  const handleNavigation = (path: string) => {
-    setFadeClass('fade-out');
-    setTimeout(() => {
-      router.push(path);
-      setFadeClass('fade-in');
-    }, 500);
-  };
-
   return (
-    <div className="flex h-screen w-full">
-      {/* Sidebar */}
-      <Sidebar handleNavigation={handleNavigation} />
-
-      {/* Main Content */}
+    <DashboardLayout>
       <div className={`flex-grow p-8 bg-gray-50 ${fadeClass}`}>
         <div className="bg-orange-100 text-center py-3 rounded mb-6">
           Nog 3 dagen gratis facturen sturen, <a href="#" className="text-blue-500 underline">waardeer nu op!</a>
@@ -49,7 +36,7 @@ const Instellingen = () => {
             <p className="text-gray-600 mb-4">
               Stuur je facturen standaard door naar je boekhouder of eigen mail voor de administratie.
             </p>
-            <input type="text" className="w-full p-2 border rounded mb-4" placeholder="info@facturi.nl,boekhouder@boekhouding.nl etc..." />
+            <input type="text" className="w-full p-2 border rounded mb-4" placeholder="info@factuready.nl,boekhouder@boekhouding.nl etc..." />
             <button className="bg-blue-500 text-white py-2 px-4 rounded">Opslaan</button>
           </div>
 
@@ -97,7 +84,7 @@ Groetjes,
           </div>
         </div>
       </div>
-    </div>
+    </DashboardLayout>
   );
 };
 
